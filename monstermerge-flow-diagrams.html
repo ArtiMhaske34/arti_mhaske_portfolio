@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Monster Merge Rush architecture and gameplay flow diagrams.">
+<title>Monster Merge Rush — Project Flow Diagrams</title>
+<style>
+:root{--ink:#17345d;--muted:#5f7692;--line:#d9e3ed;--paper:#f7f9fc;--blue:#1673c9;--orange:#e4784e}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "Segoe UI",Arial,sans-serif}
+main{width:min(1180px,calc(100% - 40px));margin:0 auto;padding:40px 0 70px}header{padding:6px 0 22px}.brand{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.045em;margin:8px 0 12px;color:#17345d}header p{max-width:850px;color:var(--muted);margin:0}.back{display:inline-block;margin-top:14px;color:#a95031;text-decoration:none;font-weight:700;font-size:12px}
+nav{position:sticky;top:10px;z-index:5;display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 24px;padding:10px;background:rgba(247,249,252,.94);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:18px}nav a{font-size:12px;font-weight:700;text-decoration:none;color:#385574;background:#fff;border:1px solid var(--line);padding:8px 13px;border-radius:24px;transition:.18s}nav a:hover{border-color:var(--blue);color:var(--blue);background:#eef7ff}
+.flow-section{scroll-margin-top:100px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0 24px;box-shadow:0 8px 24px #26364d0a}.flow-kicker{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin:0 0 3px}.flow-section h2{font-size:clamp(20px,3vw,27px);letter-spacing:-.03em;margin:0 0 13px;color:#17345d}.flow-image{display:block;width:100%;height:auto;border-radius:12px;border:1px solid #e3eaf0}.foot{font-size:12px;color:#66788c;margin:24px 4px 0}.foot strong{color:#344d69}
+@media(max-width:640px){main{width:calc(100% - 20px);padding:24px 0 45px}.flow-section{padding:12px;margin:14px 0 18px}nav{gap:6px;padding:8px}nav a{font-size:11px;padding:7px 10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="brand">Monster Merge Rush · Project walkthrough</div>
+  <h1>Game flow diagrams</h1>
+  <p>Explore the system architecture and gameplay flows one at a time, or scroll through all six supplied diagrams in sequence.</p>
+  <a class="back" href="project.html?project=monstermerge-rush">← Back to Monster Merge Rush project details</a>
+</header>
+<nav aria-label="Monster Merge Rush diagrams">
+  <a href="#architecture">Architecture</a><a href="#game-flow">Game flow</a><a href="#growth">Monster growth</a><a href="#bombs">Bomb collisions</a><a href="#parallax">Parallax</a><a href="#worlds">Themes & difficulty</a>
+</nav>
+<section class="flow-section" id="architecture"><p class="flow-kicker">01 · SYSTEM DESIGN</p><h2>High-level architecture</h2><img class="flow-image" src="assets/monstermerge-flows/01-high-level-architecture.png" alt="Monster Merge Rush block diagram showing the game manager, input manager, monster group, spawner, UI, parallax background, world, difficulty, and game state managers" loading="lazy"></section>
+<section class="flow-section" id="game-flow"><p class="flow-kicker">02 · GAMEPLAY</p><h2>Overall game flow</h2><img class="flow-image" src="assets/monstermerge-flows/02-overall-game-flow.png" alt="Monster Merge Rush flowchart from game start through human, coin, and bomb collisions to score updates and game over" loading="lazy"></section>
+<section class="flow-section" id="growth"><p class="flow-kicker">03 · PROGRESSION</p><h2>Monster growth and group expansion</h2><img class="flow-image" src="assets/monstermerge-flows/03-monster-growth.png" alt="Monster growth logic showing human consumption, monster size and human count updates, and milestone-based spawning" loading="lazy"></section>
+<section class="flow-section" id="bombs"><p class="flow-kicker">04 · COLLISION LOGIC</p><h2>Bomb collision and damage</h2><img class="flow-image" src="assets/monstermerge-flows/04-bomb-collision.png" alt="Bomb collision flow showing one-time hit handling, monster removal, and continuing or ending the run" loading="lazy"></section>
+<section class="flow-section" id="parallax"><p class="flow-kicker">05 · ENVIRONMENT SCROLLING</p><h2>Infinite background and parallax</h2><img class="flow-image" src="assets/monstermerge-flows/05-parallax-background.png" alt="Parallax background layers and paired sprites repositioned to create an infinite scrolling effect" loading="lazy"></section>
+<section class="flow-section" id="worlds"><p class="flow-kicker">06 · WORLD & CHALLENGE</p><h2>Environment themes and dynamic difficulty</h2><img class="flow-image" src="assets/monstermerge-flows/06-environment-and-difficulty.png" alt="Environment theme progression from forest to thunderstorm to icy world, plus speed increase and maximum-speed clamping" loading="lazy"></section>
+<p class="foot"><strong>Note:</strong> These are the supplied project diagrams. They describe the represented design and flow; confirm implementation details against the current Unity build.</p>
+</main>
+</body>
+</html>

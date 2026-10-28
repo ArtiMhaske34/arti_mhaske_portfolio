@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Air Traffic Analysis Dashboard architecture, data analysis, and user exploration flows.">
+<title>Air Traffic Analysis — Project Flow Diagrams</title>
+<style>
+:root{--ink:#17345d;--muted:#5f7692;--line:#d9e3ed;--paper:#f7f9fc;--blue:#1673c9;--orange:#e4784e}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "Segoe UI",Arial,sans-serif}
+main{width:min(1180px,calc(100% - 40px));margin:0 auto;padding:40px 0 70px}header{padding:6px 0 22px}.brand{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.045em;margin:8px 0 12px;color:#17345d}header p{max-width:850px;color:var(--muted);margin:0}.back{display:inline-block;margin-top:14px;color:#a95031;text-decoration:none;font-weight:700;font-size:12px}
+nav{position:sticky;top:10px;z-index:5;display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 24px;padding:10px;background:rgba(247,249,252,.94);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:18px}nav a{font-size:12px;font-weight:700;text-decoration:none;color:#385574;background:#fff;border:1px solid var(--line);padding:8px 13px;border-radius:24px;transition:.18s}nav a:hover{border-color:var(--blue);color:var(--blue);background:#eef7ff}
+.flow-section{scroll-margin-top:100px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0 24px;box-shadow:0 8px 24px #26364d0a}.flow-kicker{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin:0 0 3px}.flow-section h2{font-size:clamp(20px,3vw,27px);letter-spacing:-.03em;margin:0 0 13px;color:#17345d}.flow-image{display:block;width:100%;height:auto;border-radius:12px;border:1px solid #e3eaf0}.foot{font-size:12px;color:#66788c;margin:24px 4px 0}
+@media(max-width:640px){main{width:calc(100% - 20px);padding:24px 0 45px}.flow-section{padding:12px;margin:14px 0 18px}nav{gap:6px;padding:8px}nav a{font-size:11px;padding:7px 10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="brand">Air Traffic Analysis · Project walkthrough</div>
+  <h1>Dashboard flow diagrams</h1>
+  <p>Follow the dashboard architecture, the data-to-report workflow, and the way users explore filtered flight-performance views.</p>
+  <a class="back" href="project.html?project=air-traffic">← Back to Air Traffic Analysis project details</a>
+</header>
+<nav aria-label="Air Traffic Analysis diagrams">
+  <a href="#architecture">System architecture</a><a href="#data-flow">Data analysis flow</a><a href="#dashboard-flow">Dashboard interaction</a>
+</nav>
+<section class="flow-section" id="architecture"><p class="flow-kicker">01 · REPORT ARCHITECTURE</p><h2>System block diagram</h2><img class="flow-image" src="assets/air-traffic-flows/01-system-block-diagram.png" alt="Air Traffic Analysis Dashboard architecture from flight CSV through Power Query preparation and DAX measures to Power BI visualizations and interactive dashboard" loading="lazy"></section>
+<section class="flow-section" id="data-flow"><p class="flow-kicker">02 · DATA WORKFLOW</p><h2>Data analysis flowchart</h2><img class="flow-image" src="assets/air-traffic-flows/02-data-analysis-flowchart.png" alt="Flight data flow from loading and inspecting the CSV through preparation, analytical measures, visualizations, dashboard arrangement, and performance analysis" loading="lazy"></section>
+<section class="flow-section" id="dashboard-flow"><p class="flow-kicker">03 · USER EXPLORATION</p><h2>Interactive dashboard analysis flow</h2><img class="flow-image" src="assets/air-traffic-flows/03-interactive-dashboard-analysis.png" alt="Dashboard user flow showing airline and month filters, updated KPI cards and charts, and flight-performance exploration" loading="lazy"></section>
+<p class="foot">On-time performance depends on the measure definition used in the Power BI report.</p>
+</main>
+</body>
+</html>

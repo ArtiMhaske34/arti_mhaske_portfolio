@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MediRAG workflow diagrams for document indexing, retrieval, BMI calculation, comparison, and demonstration routes.">
+<title>MediRAG — Project Flow Diagrams</title>
+<style>
+:root{--ink:#17345d;--muted:#5f7692;--line:#d9e3ed;--paper:#f7f9fc;--blue:#1673c9;--orange:#e4784e}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "Segoe UI",Arial,sans-serif}
+main{width:min(1320px,calc(100% - 40px));margin:0 auto;padding:40px 0 70px}header{padding:6px 0 22px}.brand{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.045em;margin:8px 0 12px;color:#17345d}header p{max-width:850px;color:var(--muted);margin:0}.back{display:inline-block;margin-top:14px;color:#a95031;text-decoration:none;font-weight:700;font-size:12px}
+nav{position:sticky;top:10px;z-index:5;display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 24px;padding:10px;background:rgba(247,249,252,.94);backdrop-filter:blur(12px);border:1px solid #d9e3ed;border-radius:18px}nav a{font-size:12px;font-weight:700;text-decoration:none;color:#385574;background:#fff;border:1px solid var(--line);padding:8px 13px;border-radius:24px;transition:.18s}nav a:hover,nav a[aria-current="location"]{border-color:var(--blue);color:var(--blue);background:#eef7ff}
+.flow-section{scroll-margin-top:100px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0 24px;box-shadow:0 8px 24px #26364d0a}.flow-kicker{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin:0 0 3px}.flow-section h2{font-size:clamp(20px,3vw,27px);letter-spacing:-.03em;margin:0 0 13px;color:#17345d}.flow-image{display:block;width:100%;height:auto;border-radius:12px;border:1px solid #e3eaf0}.foot{font-size:12px;color:#66788c;margin:24px 4px 0}.foot strong{color:#344d69}
+@media(max-width:640px){main{width:calc(100% - 20px);padding:24px 0 45px}.flow-section{padding:12px;margin:14px 0 18px}nav{gap:6px;padding:8px}nav a{font-size:11px;padding:7px 10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="brand">MediRAG · Project walkthrough</div>
+  <h1>Project flow diagrams</h1>
+  <p>Use the buttons to jump to a workflow, or scroll through all the diagrams in sequence. These are the diagrams supplied for the MediRAG project.</p>
+  <a class="back" href="project.html?project=medirag">← Back to MediRAG project details</a>
+</header>
+<nav aria-label="Flow diagrams">
+  <a href="#overview">Query processing</a><a href="#ingestion">Ingestion</a><a href="#search">Search & evidence</a><a href="#calculation">BMI calculation</a><a href="#compare">Compare records</a><a href="#demos">Demo routes</a>
+</nav>
+<section class="flow-section" id="overview"><p class="flow-kicker">Workflow overview</p><h2>Query processing pipeline</h2><img class="flow-image" src="assets/medirag-flows/query-processing.png" alt="MediRAG query processing pipeline showing user query routing to search, BMI calculation, combined search and calculation, medicine interaction, and laboratory validation paths"></section>
+<section class="flow-section" id="ingestion"><p class="flow-kicker">Before a query</p><h2>Document ingestion pipeline</h2><img class="flow-image" src="assets/medirag-flows/document-ingestion.png" alt="Document ingestion flow from text extraction to chunking, local embeddings, and a FAISS index"></section>
+<section class="flow-section" id="search"><p class="flow-kicker">Retrieval-augmented question answering</p><h2>Search and answer with evidence</h2><img class="flow-image" src="assets/medirag-flows/search-evidence.png" alt="Search and answer workflow with query embedding, search scope, FAISS retrieval, local Phi-3 generation, and source passages"></section>
+<section class="flow-section" id="calculation"><p class="flow-kicker">Deterministic calculation</p><h2>BMI calculation pipeline</h2><img class="flow-image" src="assets/medirag-flows/bmi-calculation.png" alt="BMI calculation workflow showing input extraction, validation, deterministic calculation, and result"></section>
+<section class="flow-section" id="compare"><p class="flow-kicker">Record-specific retrieval</p><h2>Compare two records</h2><img class="flow-image" src="assets/medirag-flows/record-comparison.png" alt="Compare-records workflow that searches two selected sources separately and presents record-specific answers and a comparison"></section>
+<section class="flow-section" id="demos"><p class="flow-kicker">Rule-based examples</p><h2>Limited demonstration routes</h2><img class="flow-image" src="assets/medirag-flows/demo-routes.png" alt="Limited demonstration routes for medicine interaction and laboratory value checks with explicit demo-only labels"></section>
+<p class="foot"><strong>Prototype note:</strong> These diagrams illustrate the supplied screenshots and the current implementation. Medicine and laboratory checks are limited demonstrations, not clinical decision systems. Always verify answers and source records.</p>
+</main>
+<script>
+const flowLinks=[...document.querySelectorAll('nav a[href^="#"]')];
+const flowSections=flowLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)flowLinks.forEach(link=>{if(link.getAttribute('href')===`#${entry.target.id}`)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')})})},{rootMargin:'-18% 0px -70% 0px'});flowSections.forEach(section=>observer.observe(section))}
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Customer Churn Intelligence system architecture, machine-learning, dashboard, prediction, SQL, and batch-validation flows.">
+<title>Customer Churn Intelligence — Project Flow Diagrams</title>
+<style>
+:root{--ink:#29231f;--muted:#77716c;--line:#eee4da;--paper:#fffdf9;--orange:#d96e43;--orange-dark:#b95732}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 "DM Sans","Segoe UI",Arial,sans-serif}
+main{width:min(1160px,calc(100% - 40px));margin:0 auto;padding:38px 0 70px}header{padding:6px 0 22px}.brand{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-dark)}h1{font:800 clamp(34px,5vw,56px)/1.1 "Manrope",Arial,sans-serif;letter-spacing:-.045em;margin:9px 0 12px;color:var(--ink)}header p{max-width:850px;color:var(--muted);margin:0}.back{display:inline-block;margin-top:14px;color:var(--orange-dark);text-decoration:none;font-weight:700;font-size:12px}
+nav{position:sticky;top:10px;z-index:5;display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 24px;padding:10px;background:rgba(255,253,249,.94);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:16px}nav a{font-size:12px;font-weight:700;text-decoration:none;color:#665a50;background:white;border:1px solid var(--line);padding:8px 13px;border-radius:24px}nav a:hover{border-color:var(--orange);color:var(--orange-dark);background:#fff8f1}
+.flow-section{scroll-margin-top:100px;background:white;border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0 24px;box-shadow:0 8px 24px #49321d0a}.flow-kicker{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--orange-dark);margin:0 0 3px}.flow-section h2{font:800 clamp(20px,3vw,26px)/1.25 "Manrope",Arial,sans-serif;letter-spacing:-.03em;margin:0 0 13px;color:var(--ink)}.flow-image{display:block;width:100%;height:auto;border-radius:10px;border:1px solid #eee4da}.foot{font-size:12px;color:#776b62;margin:24px 4px 0}
+@media(max-width:640px){main{width:calc(100% - 20px);padding:24px 0 45px}.flow-section{padding:11px;margin:14px 0 18px}nav{gap:6px;padding:8px}nav a{font-size:11px;padding:7px 10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="brand">Customer Churn Intelligence · Project walkthrough</div>
+  <h1>System and workflow diagrams</h1>
+  <p>Explore how customer records move through validation, SQL analytics, model training and prediction, explainability, and dashboard review.</p>
+  <a class="back" href="project.html?project=customer-churn">← Back to Customer Churn Intelligence project details</a>
+</header>
+<nav aria-label="Customer Churn Intelligence diagrams">
+  <a href="#architecture">Architecture</a><a href="#ml-pipeline">ML pipeline</a><a href="#modules">Dashboard modules</a><a href="#prediction">Prediction</a><a href="#sql">SQL analytics</a><a href="#batch">Batch validation</a>
+</nav>
+<section class="flow-section" id="architecture"><p class="flow-kicker">01 · SYSTEM ARCHITECTURE</p><h2>CSV, local analytics, machine learning, and dashboard</h2><img class="flow-image" src="assets/churn-flows/01-system-architecture.png" alt="Customer Churn Intelligence system architecture linking CSV inputs, data preparation and SQLite, machine-learning pipeline, Streamlit modules, and human-reviewed outputs" loading="lazy"></section>
+<section class="flow-section" id="ml-pipeline"><p class="flow-kicker">02 · MODEL WORKFLOW</p><h2>From customer data to evaluated model</h2><img class="flow-image" src="assets/churn-flows/02-machine-learning-pipeline.png" alt="Machine-learning pipeline from telco churn CSV through preprocessing, XGBoost and comparison models, evaluation, and saved preprocessing/model artifacts" loading="lazy"></section>
+<section class="flow-section" id="modules"><p class="flow-kicker">03 · APPLICATION MODULES</p><h2>One dashboard, connected analysis tools</h2><img class="flow-image" src="assets/churn-flows/03-dashboard-modules.png" alt="Customer Churn Intelligence dashboard module map for overview, CSV exploration, prediction, evaluation, explanations, SQL and AI, and quality monitoring" loading="lazy"></section>
+<section class="flow-section" id="prediction"><p class="flow-kicker">04 · INDIVIDUAL PREDICTION</p><h2>Customer profile to estimated churn risk</h2><img class="flow-image" src="assets/churn-flows/04-single-customer-prediction.png" alt="Single-customer prediction flow through input validation, saved preprocessing, trained XGBoost model, and churn probability, class, risk band, and recommendations" loading="lazy"></section>
+<section class="flow-section" id="sql"><p class="flow-kicker">05 · SQL ANALYTICS</p><h2>Read-only questions over local SQLite data</h2><img class="flow-image" src="assets/churn-flows/05-sql-analytics.png" alt="SQL analytics workflow loading source or uploaded CSV data into SQLite, running read-only queries, and presenting customer churn results as visual insights" loading="lazy"></section>
+<section class="flow-section" id="batch"><p class="flow-kicker">06 · BATCH VALIDATION</p><h2>Validate uploaded records before batch scoring</h2><img class="flow-image" src="assets/churn-flows/06-batch-validation.png" alt="Batch prediction flow validating uploaded customer CSV schema and values, applying fitted preprocessing and XGBoost prediction, and returning downloadable results" loading="lazy"></section>
+<p class="foot">Model estimates and suggested actions support analysis and require human review; they do not guarantee future customer behavior.</p>
+</main>
+</body>
+</html>

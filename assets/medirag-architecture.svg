@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1240" role="img" aria-labelledby="title desc">
+  <title id="title">MediRAG architecture overview</title>
+  <desc id="desc">The MediRAG document ingestion pipeline and its main search, calculation, and combined question-answering paths.</desc>
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#fbfaf8"/><stop offset="1" stop-color="#f4f1ed"/></linearGradient>
+    <linearGradient id="navy" x2="1" y2="1"><stop stop-color="#17345d"/><stop offset="1" stop-color="#254e7e"/></linearGradient>
+    <linearGradient id="coral" x2="1" y2="1"><stop stop-color="#f3a173"/><stop offset="1" stop-color="#dc7149"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#26364d" flood-opacity=".08"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#71849a"/></marker>
+    <style>
+      text{font-family:Inter,"Segoe UI",Arial,sans-serif;fill:#1c2b40}
+      .title{font-size:42px;font-weight:800;letter-spacing:-1.5px}.subtitle{font-size:17px;fill:#657487}
+      .section{font-size:20px;font-weight:750}.kicker{font-size:11px;font-weight:750;letter-spacing:1.8px;fill:#bd6748}
+      .card{fill:#fff;stroke:#e3e7eb;stroke-width:1.2;rx:16;filter:url(#shadow)}
+      .head{font-size:16px;font-weight:750}.body{font-size:13px;fill:#647286}.small{font-size:11px;fill:#718096}.tag{font-size:11px;font-weight:700;letter-spacing:.2px}
+      .arrow{fill:none;stroke:#71849a;stroke-width:2.2;marker-end:url(#arrow)}
+      .line{fill:none;stroke:#9aa8b7;stroke-width:2}
+      .number{font-size:12px;font-weight:800;fill:#fff}
+    </style>
+  </defs>
+  <rect width="1440" height="1240" fill="url(#bg)"/>
+  <circle cx="1355" cy="62" r="95" fill="#f7e5d8" opacity=".55"/>
+  <circle cx="1355" cy="62" r="62" fill="none" stroke="#dfaa8b" stroke-width="1.5" opacity=".45"/>
+
+  <text x="62" y="70" class="title"><tspan fill="#17345d">Medi</tspan><tspan fill="#dc7149">RAG</tspan></text>
+  <text x="64" y="102" class="subtitle">Local, evidence-grounded health record search and analysis</text>
+  <rect x="1020" y="36" width="340" height="48" rx="24" fill="#fff" stroke="#e8ded5"/>
+  <circle cx="1046" cy="60" r="6" fill="#6ba68b"/>
+  <text x="1062" y="65" class="tag" fill="#385d50">OLLAMA LOCAL MODELS · FAISS INDEX</text>
+
+  <!-- A. Document ingestion -->
+  <rect x="44" y="132" width="1352" height="250" rx="22" fill="#edf5fb" stroke="#caddec"/>
+  <text x="72" y="169" class="kicker">A · DOCUMENT INGESTION PIPELINE</text>
+  <text x="72" y="196" class="section">Process and index documents before users query them</text>
+  <text x="1366" y="190" text-anchor="end" class="small">Supported inputs: PDF · DOCX · FHIR JSON</text>
+
+  <rect x="72" y="218" width="278" height="132" class="card"/>
+  <circle cx="99" cy="247" r="14" fill="#dc7149"/><text x="99" y="251" text-anchor="middle" class="number">1</text>
+  <text x="122" y="252" class="head">Text extraction</text>
+  <text x="94" y="284" class="body">Extract readable text from</text><text x="94" y="304" class="body">supported health-record files.</text>
+  <path d="M352 284H394" class="arrow"/>
+
+  <rect x="402" y="218" width="278" height="132" class="card"/>
+  <circle cx="429" cy="247" r="14" fill="#dc7149"/><text x="429" y="251" text-anchor="middle" class="number">2</text>
+  <text x="452" y="252" class="head">Text chunking</text>
+  <text x="424" y="284" class="body">Split text into smaller,</text><text x="424" y="304" class="body">overlapping chunks for retrieval.</text>
+  <path d="M682 284H724" class="arrow"/>
+
+  <rect x="732" y="218" width="278" height="132" class="card"/>
+  <circle cx="759" cy="247" r="14" fill="#dc7149"/><text x="759" y="251" text-anchor="middle" class="number">3</text>
+  <text x="782" y="252" class="head">Embedding generation</text>
+  <text x="754" y="284" class="body">Local Ollama model</text><text x="754" y="304" class="body">nomic-embed-text creates vectors.</text>
+  <path d="M1012 284H1054" class="arrow"/>
+
+  <rect x="1062" y="218" width="306" height="132" class="card"/>
+  <circle cx="1089" cy="247" r="14" fill="#dc7149"/><text x="1089" y="251" text-anchor="middle" class="number">4</text>
+  <text x="1112" y="252" class="head">Local FAISS index</text>
+  <text x="1084" y="284" class="body">Store vectors with source metadata</text><text x="1084" y="304" class="body">for similarity-based retrieval.</text>
+
+  <!-- B. Question answering -->
+  <rect x="44" y="406" width="1352" height="760" rx="22" fill="#fff" stroke="#e0e4e8"/>
+  <text x="72" y="443" class="kicker">B · QUESTION-ANSWERING PIPELINE</text>
+  <text x="72" y="470" class="section">Route each question to the appropriate workflow</text>
+
+  <rect x="72" y="495" width="280" height="94" class="card"/>
+  <text x="96" y="528" class="head">User question</text><text x="96" y="555" class="body">Submitted in the React frontend</text>
+  <path d="M354 542H402" class="arrow"/>
+  <rect x="410" y="495" width="280" height="94" class="card"/>
+  <text x="434" y="528" class="head">React frontend</text><text x="434" y="555" class="body">Sends request to the local API</text>
+  <path d="M692 542H740" class="arrow"/>
+  <rect x="748" y="495" width="280" height="94" class="card"/>
+  <text x="772" y="528" class="head">FastAPI backend</text><text x="772" y="555" class="body">Receives and dispatches request</text>
+  <path d="M1030 542H1078" class="arrow"/>
+  <rect x="1086" y="495" width="282" height="94" rx="16" fill="url(#navy)" filter="url(#shadow)"/>
+  <text x="1110" y="528" class="head" fill="#fff">LangGraph router</text><text x="1110" y="555" font-size="13" fill="#e3edf7">Deterministic rules select a path</text>
+
+  <!-- Branch to three main workflows -->
+  <path d="M1227 589V618H286V650M1227 618H1140V650M1227 618H720V650" class="line"/>
+  <path d="M286 628V650M720 628V650M1140 628V650" class="arrow"/>
+  <text x="72" y="638" class="kicker">MAIN WORKFLOWS</text>
+
+  <rect x="72" y="660" width="428" height="322" rx="18" fill="#eef6fc" stroke="#c9ddec"/>
+  <text x="100" y="699" class="head">SEARCH</text>
+  <text x="100" y="728" class="body">1 · Embed the user's question locally</text>
+  <text x="100" y="753" class="body">2 · Retrieve relevant chunks from FAISS</text>
+  <text x="100" y="778" class="body">3 · Give retrieved context to local</text><text x="121" y="798" class="body">Ollama phi3 for answer generation</text>
+  <rect x="100" y="832" width="372" height="84" rx="12" fill="#fff" stroke="#d9e7f0"/>
+  <text x="120" y="861" class="tag" fill="#315f81">RETURNS</text>
+  <text x="120" y="885" class="body">Generated answer + available source passages</text>
+  <text x="100" y="950" class="small">Search can use a selected source or a patient-name match.</text>
+
+  <rect x="506" y="660" width="428" height="322" rx="18" fill="#fff6df" stroke="#eddaa6"/>
+  <text x="534" y="699" class="head">CALCULATION</text>
+  <text x="534" y="728" class="body">Recognized BMI requests go to a</text><text x="534" y="748" class="body">calculation tool rather than relying only</text><text x="534" y="768" class="body">on language-model generation.</text>
+  <rect x="534" y="800" width="372" height="88" rx="12" fill="#fff" stroke="#efdfb3"/>
+  <text x="554" y="830" class="tag" fill="#8b6c29">PYTHON BMI TOOL</text>
+  <text x="554" y="854" class="body">Uses supplied weight and height</text><text x="554" y="874" class="body">and returns a calculation result.</text>
+  <text x="534" y="950" class="small">Calculation only; not a diagnosis.</text>
+
+  <rect x="940" y="660" width="428" height="322" rx="18" fill="#eef8f0" stroke="#cae4ce"/>
+  <text x="968" y="699" class="head">COMBINED SEARCH + CALCULATION</text>
+  <rect x="968" y="722" width="170" height="64" rx="12" fill="#fff" stroke="#d5e8d8"/>
+  <text x="1053" y="750" text-anchor="middle" class="tag" fill="#477553">SEARCH</text><text x="1053" y="770" text-anchor="middle" class="small">retrieve record facts</text>
+  <rect x="1168" y="722" width="170" height="64" rx="12" fill="#fff" stroke="#d5e8d8"/>
+  <text x="1253" y="750" text-anchor="middle" class="tag" fill="#477553">CALCULATE</text><text x="1253" y="770" text-anchor="middle" class="small">compute BMI</text>
+  <path d="M1053 790V812H1153M1253 790V812H1153V832" class="arrow"/>
+  <rect x="968" y="838" width="370" height="56" rx="12" fill="#fff" stroke="#d5e8d8"/>
+  <text x="1153" y="862" text-anchor="middle" class="tag" fill="#477553">MERGED RESPONSE</text><text x="1153" y="881" text-anchor="middle" class="small">record summary + separate BMI result</text>
+  <text x="968" y="950" class="small">Prompts for a source if measurements could be mixed.</text>
+
+  <!-- Return to frontend -->
+  <path d="M286 983V1020H720M720 983V1020M1154 983V1020H720V1035" class="arrow"/>
+  <rect x="342" y="1045" width="756" height="58" rx="18" fill="url(#coral)"/>
+  <text x="720" y="1081" text-anchor="middle" font-size="17" font-weight="750" fill="#fff">ANSWER + AVAILABLE EVIDENCE → REACT FRONTEND</text>
+
+  <text x="720" y="1132" text-anchor="middle" class="body">LangGraph coordinates the workflow; it does not independently verify medical correctness.</text>
+  <text x="720" y="1154" text-anchor="middle" class="small">Educational prototype · not a clinical decision system or HIPAA-certified product</text>
+  <text x="720" y="1187" text-anchor="middle" class="small">This overview shows the three primary Q&amp;A paths; record comparison and limited demo routes are separate features.</text>
+</svg>

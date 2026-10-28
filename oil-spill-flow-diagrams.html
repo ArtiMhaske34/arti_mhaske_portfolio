@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oil Spill Detection & Analysis project diagrams for SAR preprocessing, U-Net segmentation, analytics, and dashboard batch workflows.">
+<title>Oil Spill AI — Project Flow Diagrams</title>
+<style>
+:root{--ink:#17345d;--muted:#5f7692;--line:#d9e3ed;--paper:#f7f9fc;--blue:#1673c9;--orange:#e4784e}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "Segoe UI",Arial,sans-serif}
+main{width:min(1320px,calc(100% - 40px));margin:0 auto;padding:40px 0 70px}header{padding:6px 0 22px}.brand{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.045em;margin:8px 0 12px;color:#17345d}header p{max-width:850px;color:var(--muted);margin:0}.back{display:inline-block;margin-top:14px;color:#a95031;text-decoration:none;font-weight:700;font-size:12px}
+nav{position:sticky;top:10px;z-index:5;display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 24px;padding:10px;background:rgba(247,249,252,.94);backdrop-filter:blur(12px);border:1px solid #d9e3ed;border-radius:18px}nav a{font-size:12px;font-weight:700;text-decoration:none;color:#385574;background:#fff;border:1px solid var(--line);padding:8px 13px;border-radius:24px;transition:.18s}nav a:hover,nav a[aria-current="location"]{border-color:var(--blue);color:var(--blue);background:#eef7ff}
+.flow-section{scroll-margin-top:100px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0 24px;box-shadow:0 8px 24px #26364d0a}.flow-kicker{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin:0 0 3px}.flow-section h2{font-size:clamp(20px,3vw,27px);letter-spacing:-.03em;margin:0 0 13px;color:#17345d}.flow-image{display:block;width:100%;height:auto;border-radius:12px;border:1px solid #e3eaf0}.foot{font-size:12px;color:#66788c;margin:24px 4px 0}.foot strong{color:#344d69}
+@media(max-width:640px){main{width:calc(100% - 20px);padding:24px 0 45px}.flow-section{padding:12px;margin:14px 0 18px}nav{gap:6px;padding:8px}nav a{font-size:11px;padding:7px 10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="brand">Oil Spill AI · Project walkthrough</div>
+  <h1>Project flow diagrams</h1>
+  <p>Use the buttons to jump to a workflow, or scroll through the diagrams in sequence. These diagrams were supplied for the Oil Spill Detection & Analysis project.</p>
+  <a class="back" href="project.html?project=oil-spill">← Back to Oil Spill project details</a>
+</header>
+<nav aria-label="Oil Spill project diagrams">
+  <a href="#overview">System architecture</a><a href="#model">U-Net model</a><a href="#prediction">Prediction & analytics</a><a href="#dashboard">Batch dashboard</a>
+</nav>
+<section class="flow-section" id="overview"><p class="flow-kicker">End-to-end workflow</p><h2>From SAR scene to analyst review</h2><img class="flow-image" src="assets/oil-spill-flows/oilspill-system-architecture.png" alt="End-to-end Oil Spill system architecture from SAR satellite imagery through preprocessing, U-Net segmentation, probability maps, outputs, analytics, Streamlit dashboard, and analyst review"></section>
+<section class="flow-section" id="model"><p class="flow-kicker">Pixel-level semantic segmentation</p><h2>U-Net-style model architecture</h2><img class="flow-image" src="assets/oil-spill-flows/oilspill-unet-architecture.png" alt="U-Net-style encoder-decoder architecture with convolution blocks, bottleneck, skip connections, probability map, and segmentation mask"></section>
+<section class="flow-section" id="prediction"><p class="flow-kicker">Single-scene inference</p><h2>Image prediction and analytics pipeline</h2><img class="flow-image" src="assets/oil-spill-flows/oilspill-prediction-analytics.png" alt="Image prediction and analytics pipeline from SAR input through preprocessing, model prediction, heatmap, mask, visualizations, scene metrics, risk prioritization, and dashboard"></section>
+<section class="flow-section" id="dashboard"><p class="flow-kicker">Multi-scene review</p><h2>Interactive dashboard and batch analysis</h2><img class="flow-image" src="assets/oil-spill-flows/oilspill-batch-dashboard.png" alt="Interactive dashboard and batch analysis workflow for selecting modes, processing images, aggregating metrics, ranking scenes, inspecting scenes, and exporting CSV results"></section>
+<p class="foot"><strong>Interpretation note:</strong> Segmentation predictions and the project's risk-prioritization score are experimental. The score organizes scenes for review and is not a validated environmental-risk assessment.</p>
+</main>
+<script>
+const flowLinks=[...document.querySelectorAll('nav a[href^="#"]')];
+const flowSections=flowLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)flowLinks.forEach(link=>{if(link.getAttribute('href')===`#${entry.target.id}`)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')})})},{rootMargin:'-18% 0px -70% 0px'});flowSections.forEach(section=>observer.observe(section))}
+</script>
+</body>
+</html>

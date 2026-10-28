@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Face recognition and liveness detection project diagrams: ArcFace matching, MediaPipe liveness cues, FastAPI backend, and registration workflows.">
+<title>Face Recognition — Project Flow Diagrams</title>
+<style>
+:root{--ink:#17345d;--muted:#5f7692;--line:#d9e3ed;--paper:#f7f9fc;--blue:#1673c9;--orange:#e4784e}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "Segoe UI",Arial,sans-serif}
+main{width:min(1320px,calc(100% - 40px));margin:0 auto;padding:40px 0 70px}header{padding:6px 0 22px}.brand{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.045em;margin:8px 0 12px;color:#17345d}header p{max-width:850px;color:var(--muted);margin:0}.back{display:inline-block;margin-top:14px;color:#a95031;text-decoration:none;font-weight:700;font-size:12px}
+nav{position:sticky;top:10px;z-index:5;display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 24px;padding:10px;background:rgba(247,249,252,.94);backdrop-filter:blur(12px);border:1px solid #d9e3ed;border-radius:18px}nav a{font-size:12px;font-weight:700;text-decoration:none;color:#385574;background:#fff;border:1px solid var(--line);padding:8px 13px;border-radius:24px;transition:.18s}nav a:hover,nav a[aria-current="location"]{border-color:var(--blue);color:var(--blue);background:#eef7ff}
+.flow-section{scroll-margin-top:100px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0 24px;box-shadow:0 8px 24px #26364d0a}.flow-kicker{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin:0 0 3px}.flow-section h2{font-size:clamp(20px,3vw,27px);letter-spacing:-.03em;margin:0 0 13px;color:#17345d}.flow-image{display:block;width:100%;height:auto;border-radius:12px;border:1px solid #e3eaf0}.foot{font-size:12px;color:#66788c;margin:24px 4px 0}.foot strong{color:#344d69}
+@media(max-width:640px){main{width:calc(100% - 20px);padding:24px 0 45px}.flow-section{padding:12px;margin:14px 0 18px}nav{gap:6px;padding:8px}nav a{font-size:11px;padding:7px 10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="brand">Face Recognition · Project walkthrough</div>
+  <h1>Project flow diagrams</h1>
+  <p>Use the buttons to jump to a workflow, or scroll through the supplied diagrams in sequence.</p>
+  <a class="back" href="project.html?project=face-liveness">← Back to Face Recognition project details</a>
+</header>
+<nav aria-label="Face recognition project diagrams">
+  <a href="#architecture">System architecture</a><a href="#recognition">ArcFace recognition</a><a href="#liveness">Liveness checks</a><a href="#backend">FastAPI backend</a><a href="#registration">Registration &amp; authentication</a>
+</nav>
+<section class="flow-section" id="architecture"><p class="flow-kicker">End-to-end workflow</p><h2>Face recognition with liveness detection</h2><img class="flow-image" src="assets/face-recognition-flows/face-system-architecture.png" alt="End-to-end webcam frame processing, face detection and embedding, ArcFace recognition, MediaPipe liveness checks, authentication decision, FastAPI backend, and output"></section>
+<section class="flow-section" id="recognition"><p class="flow-kicker">Identity matching</p><h2>ArcFace-based face recognition</h2><img class="flow-image" src="assets/face-recognition-flows/face-recognition-pipeline.png" alt="ArcFace recognition pipeline from webcam frame through InsightFace detection, 512-dimensional embedding, stored embeddings, cosine similarity, and configured threshold"></section>
+<section class="flow-section" id="liveness"><p class="flow-kicker">Movement-based liveness cues</p><h2>MediaPipe Face Mesh liveness checks</h2><img class="flow-image" src="assets/face-recognition-flows/face-liveness-pipeline.png" alt="Liveness workflow using MediaPipe Face Mesh landmarks, eye aspect ratio blink patterns, head-motion tracking, and implemented liveness conditions"></section>
+<section class="flow-section" id="backend"><p class="flow-kicker">API and local storage</p><h2>FastAPI backend architecture</h2><img class="flow-image" src="assets/face-recognition-flows/face-fastapi-architecture.png" alt="FastAPI backend endpoints for registration, face recognition, video feed, and history, connected to recognition and liveness components and local storage"></section>
+<section class="flow-section" id="registration"><p class="flow-kicker">Enrollment and verification</p><h2>User registration and authentication</h2><img class="flow-image" src="assets/face-recognition-flows/face-registration-authentication.png" alt="Enrollment workflow storing facial embeddings locally and authentication workflow comparing a new embedding and evaluating liveness cues"></section>
+<p class="foot"><strong>Security note:</strong> Blink and head-motion heuristics provide basic liveness cues; they do not guarantee resistance to presentation attacks. Treat these diagrams as a description of the prototype, not a security certification.</p>
+</main>
+<script>
+const flowLinks=[...document.querySelectorAll('nav a[href^="#"]')];
+const flowSections=flowLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)flowLinks.forEach(link=>{if(link.getAttribute('href')===`#${entry.target.id}`)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')})})},{rootMargin:'-18% 0px -70% 0px'});flowSections.forEach(section=>observer.observe(section))}
+</script>
+</body>
+</html>
